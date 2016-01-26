@@ -15,7 +15,7 @@
   (interactive "sEnter you username: ")
   arg)
 
-;setq is short for: (set 'name (call-interactively 'ask_name))
+;setq means "set quoted" and is short for: (set 'name (call-interactively 'ask_name))
 ;setq defines global variables
 ;'name is short for (quote name) which means "do not evaluate name; let it be the atom name"
 (setq name (call-interactively 'ask_name))
