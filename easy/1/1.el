@@ -1,7 +1,12 @@
 ;run with M-x eval-buffer
 
+
+;interactive functions can be invoked with M-x functionname
+;return value of interactive functions are not automaticly displayed in echo-area to avoid spam
+;so we have to return arg explicitly
+
 (defun ask_name (arg)
-  "Prompt the user for a name"
+  "Prompt the user for a name" ; Documentation string. Is shown when you press: C-h f functionname
   (interactive "sEnter you name: ")
   arg)
 
