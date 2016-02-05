@@ -30,5 +30,5 @@
 ;run commands
 (setq content (call-interactively 'get_content))
 (setq offset (call-interactively 'get_offset))
-(setq encrypted (encrypt content))
+(setq encrypted (encrypt content (string-to-number offset)))
 (message "encrypted string: %s " encrypted)
