@@ -2,10 +2,10 @@
 (def scan (Scanner. *in*))
 
 (println "Enter string to encrypt:")
-(def input (.nextLine scan))
+(def input (.nextLine scan));.method is shortcut for calling methods
 
 (defn encrypt-char [offset c]
-(if (Character/isLetter c)
+(if (Character/isLetter c) ;/ is used to call static methods
     (let [v (int c)
           base (if (>= v (int \a))
                  (int \a)

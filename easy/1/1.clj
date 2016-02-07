@@ -1,3 +1,4 @@
+;run in REPL with (load-file "1.clj")
 (import '(java.util Scanner))
 (def scan (Scanner. *in*))
 
