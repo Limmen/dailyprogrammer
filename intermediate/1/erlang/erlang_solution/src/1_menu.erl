@@ -8,6 +8,9 @@
 %%%-------------------------------------------------------------------
 -module('1_menu').
 
+%% Includes
+-include_lib("proper/include/proper.hrl").
+
 %% API
 -export([init/0]).
 
@@ -39,7 +42,7 @@ repl(State)->
         delete ->
             repl(delete(list_to_atom(string:to_lower(lists:nth(2, Input))), State));
         list ->
-            list(State),
+            list_events(State),
             repl(State);
         help ->
             help(),
@@ -62,7 +65,7 @@ delete(EventName, State)->
     io:format("~p deleted ~n", [EventName]),
     lists:filter(fun(Event) -> not Event#event.name =:= EventName end, State).
 
-list(State)->
+list_events(State)->
     lists:map(fun(#event{name=Name, hour=Hour}) -> io:format("~p ~p ~n", [Name, Hour]) end, State).
 
 help()->
@@ -70,3 +73,18 @@ help()->
 
 error()->
     io:format("Invalid command, type help to see a list of available commands \n", []).
+
+
+%%%===================================================================
+%%% Testing internal functions
+%%%===================================================================
+
+prop_add()->
+    ?FORALL({EventName, Hour, State}, {atom(), integer(), list()}, one_element_added(add(EventName,Hour,State),State)).
+
+
+%%%===================================================================
+%%% Helper functions
+%%%===================================================================
+one_element_added(Result, State)->
+    length(Result) =:= length(State) + 1.
