@@ -1,3 +1,0 @@
-(ns dailyprogrammer)
-
-(Math/PI)
