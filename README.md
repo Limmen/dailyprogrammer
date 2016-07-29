@@ -14,5 +14,6 @@ The MIT License (MIT)
 
 Copyright (c) 2015 Kim Hammar
 
-[https://www.reddit.com/r/dailyprogrammer/wiki/challenges][link]
+[Challenges](https://www.reddit.com/r/dailyprogrammer/wiki/challenges)
+
 
